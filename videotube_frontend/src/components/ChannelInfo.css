@@ -1,0 +1,72 @@
+.channel-info{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:10px 0;
+    width:100%;
+}
+
+/* Left side */
+
+.channel-left{
+    display:flex;
+    align-items:center;
+    cursor:pointer;
+}
+
+/* Avatar */
+
+.channel-avatar{
+    height:42px;
+    width:42px;
+    border-radius:50%;
+    object-fit:cover;
+}
+
+/* Text */
+
+.channel-text{
+    margin-left:10px;
+}
+
+.chn-name{
+    font-size:16px;
+    font-weight:600;
+    margin:0;
+}
+
+.chn-sub{
+    font-size:13px;
+    color:#9ca3af;
+    margin-top:2px;
+}
+
+/* Buttons */
+
+.subscribe-btn{
+    background:#cc0000;
+    color:white;
+    border:none;
+    padding:8px 18px;
+    border-radius:20px;
+    font-weight:600;
+    cursor:pointer;
+}
+
+.subscribe-btn:hover{
+    background:#b80000;
+}
+
+.subscribed-btn{
+    background:#e5e5e5;
+    color:black;
+    border:none;
+    padding:8px 18px;
+    border-radius:20px;
+    font-weight:600;
+    cursor:pointer;
+}
+
+.subscribed-btn:hover{
+    background:#d4d4d4;
+}

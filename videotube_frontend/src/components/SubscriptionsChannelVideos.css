@@ -1,0 +1,169 @@
+/* ===== Main Container ===== */
+
+.channel-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 25px 40px;
+  background: #121311;
+  min-height: 100vh;
+  color: #e5e7eb;
+}
+
+/* ===== Each Channel Section ===== */
+
+.subscribed-channel {
+  background: #1c1d1b;
+  padding: 18px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,96,68,0.15);
+  transition: 0.25s;
+}
+
+.subscribed-channel:hover {
+  border-color: rgba(255,96,68,0.35);
+}
+
+/* ===== Channel Header ===== */
+
+.channelInfo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+/* Avatar */
+
+.subscribed-ch-img img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(255,96,68,0.25);
+}
+
+/* Username */
+
+.subscribed-ch-username {
+  font-size: 18px;
+  font-weight: 600;
+  color: #ffffff;
+  transition: 0.2s;
+}
+
+.channelInfo:hover .subscribed-ch-username {
+  color: #ff6044;
+}
+
+/* ===== Section Heading ===== */
+
+.subscribed-hd {
+  font-size: 14px;
+  font-weight: 500;
+  color: #9ca3af;
+  margin-bottom: 12px;
+}
+
+/* ===== Videos Row ===== */
+
+.subscribed-channel-videos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+/* VideoCard container */
+
+.subscribed-channel-videos > * {
+  width: 270px;
+  background: #121311;
+  border-radius: 10px;
+  padding: 6px;
+  border: 1px solid rgba(255,96,68,0.12);
+  transition: 0.25s;
+}
+
+.subscribed-channel-videos > *:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255,96,68,0.35);
+  background: rgba(255,96,68,0.05);
+}
+
+/* ===== Empty State ===== */
+
+.fd {
+  margin-top: 5px;
+  margin-bottom: 15px;
+  color: #9ca3af;
+  font-size: 14px;
+}
+
+/* ===== Responsive ===== */
+
+@media (max-width: 900px) {
+
+  .channel-detail {
+    padding: 20px;
+  }
+
+  .subscribed-channel-videos {
+    justify-content: center;
+  }
+
+}
+
+@media (max-width: 600px) {
+
+  .subscribed-channel-videos > * {
+    width: 100%;
+  }
+
+}
+
+/* ===== Light Mode ===== */
+
+body.light-mode .channel-detail {
+  background: #f8fafc;
+  color: #0f172a;
+}
+
+body.light-mode .subscribed-channel {
+  background: #ffffff;
+  border: 1px solid rgba(0,0,0,0.08);
+}
+
+body.light-mode .subscribed-channel:hover {
+  border-color: rgba(0,0,0,0.15);
+}
+
+body.light-mode .subscribed-ch-img img {
+  border: 2px solid rgba(0,0,0,0.1);
+}
+
+body.light-mode .subscribed-ch-username {
+  color: #0f172a;
+}
+
+body.light-mode .channelInfo:hover .subscribed-ch-username {
+  color: #ff6044;
+}
+
+body.light-mode .subscribed-hd {
+  color: #64748b;
+}
+
+body.light-mode .subscribed-channel-videos > * {
+  background: #f1f5f9;
+  border: 1px solid rgba(0,0,0,0.08);
+}
+
+body.light-mode .subscribed-channel-videos > *:hover {
+  background: rgba(255,96,68,0.05);
+  border-color: rgba(255,96,68,0.25);
+}
+
+body.light-mode .fd {
+  color: #64748b;
+}

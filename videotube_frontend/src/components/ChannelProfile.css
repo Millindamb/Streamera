@@ -1,0 +1,402 @@
+/* ===== THEME VARIABLES (GLOBAL SYNC) ===== */
+
+:root {
+  --accent-color: #ff6044;
+  --accent-hover: #ff735a;
+}
+
+body.light-mode {
+  --accent-color: #1f1f1f;
+  --accent-hover: #333333;
+}
+
+/* ===== PAGE ROOT ===== */
+
+.channel-profile {
+  background: #121313;
+  min-height: 100vh;
+  color: #f1f5f9;
+  padding-bottom: 50px;
+}
+
+.about-channel {
+  width: 92%;
+  max-width: 1400px;
+  margin: auto;
+}
+
+/* ===== CHANNEL HEADER CARD ===== */
+
+.channel-pro-info {
+  background: #1c1d1b;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255,96,68,0.12);
+  margin-top: 25px;
+}
+
+/* ===== COVER IMAGE ===== */
+
+.channel-pro-coverImage {
+  width: 100%;
+  height: 200px;
+}
+
+.channel-pro-coverImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ===== HEADER CONTENT ===== */
+
+.channel-pro-header {
+  display: flex;
+  gap: 20px;
+  padding: 40px;
+  position: relative;
+}
+
+/* ===== AVATAR ===== */
+
+.channel-pro-avatar {
+  position: absolute;
+  top: -60px;
+  left: 20px;
+
+  width: 170px;
+  height: 170px;
+
+  border-radius: 50%;
+  border: 4px solid #1c1d1b;
+
+  object-fit: cover;
+  background: #121313;
+
+  transition: transform 0.25s ease;
+}
+
+.channel-pro-avatar:hover {
+  transform: scale(1.05);
+}
+
+/* ===== TEXT ===== */
+
+.channel-pro-text {
+  margin-left: 200px;
+}
+
+.channel-pro-name {
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.channel-pro-subscribers {
+  font-size: 14px;
+  color: #9ca3af;
+}
+
+/* ===== SUBSCRIBE BUTTON ===== */
+
+.channel-pro-subscribe-button {
+  margin-left: auto;
+}
+
+.channel-pro-subscribe-button button {
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: none;
+  background: var(--accent-color);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.channel-pro-subscribe-button button:hover {
+  background: var(--accent-hover);
+}
+
+/* ===== TAB OPTIONS ===== */
+
+.channel-pro-option {
+  display: flex;
+  gap: 18px;
+  margin-top: 25px;
+  border-bottom: 1px solid #334155;
+  padding-bottom: 10px;
+}
+
+.channel-pro-option button {
+  background: transparent;
+  border: none;
+  color: #9ca3af;
+  font-size: 15px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.channel-pro-option button:hover {
+  background: rgba(255,96,68,0.08);
+  color: var(--accent-color);
+}
+
+/* ===== VIDEOS SECTION ===== */
+
+.channel-pro-video {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 22px;
+}
+
+/* ===== TWEETS ===== */
+
+.channel-pro-tweets {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.channel-pro-tweets > div {
+  background: #1c1d1b;
+  border-radius: 12px;
+  padding: 18px;
+  border: 1px solid rgba(255,96,68,0.12);
+  transition: 0.25s;
+}
+
+.channel-pro-tweets > div:hover {
+  background: rgba(255,96,68,0.05);
+  border-color: rgba(255,96,68,0.3);
+}
+
+/* ===== TWEET USER ===== */
+
+.channel-pro-user-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.channel-pro-user-info img {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.channel-pro-user-info div:nth-child(2) {
+  font-weight: 600;
+}
+
+.channel-pro-user-info div:last-child {
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+/* ===== PLAYLISTS ===== */
+
+.channel-pro--playlists {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.channel-pro-playlist-info {
+  background: #1c1d1b;
+  border-radius: 14px;
+  padding: 22px;
+  border: 1px solid rgba(255,96,68,0.12);
+  transition: 0.25s;
+}
+
+.channel-pro-playlist-info:hover {
+  background: rgba(255,96,68,0.05);
+  border-color: rgba(255,96,68,0.3);
+}
+
+.channel-pro-pl-name {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.channel-pro-pl-description {
+  font-size: 14px;
+  color: #9ca3af;
+  margin-top: 6px;
+}
+
+.channel-pro-total {
+  font-size: 13px;
+  color: #9ca3af;
+  margin-bottom: 14px;
+}
+
+.channel-pro-videos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+/* ===== LIGHT MODE ===== */
+
+body.light-mode .channel-profile {
+  background: #f8fafc;
+  color: #121313;
+}
+
+body.light-mode .channel-pro-info,
+body.light-mode .channel-pro-tweets > div,
+body.light-mode .channel-pro-playlist-info {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+}
+
+body.light-mode .channel-pro-option {
+  border-bottom: 1px solid #e2e8f0;
+}
+
+/* FIXED HOVER (NO ORANGE) */
+
+body.light-mode .channel-pro-option button:hover {
+  background: #f1f1f1;
+  color: var(--accent-color);
+}
+
+body.light-mode .channel-pro-tweets > div:hover,
+body.light-mode .channel-pro-playlist-info:hover {
+  background: #f1f1f1;
+  border-color: var(--accent-color);
+}
+
+body.light-mode .channel-pro-avatar {
+  border: 4px solid #ffffff;
+}
+
+body.light-mode .channel-pro-subscribers,
+body.light-mode .channel-pro-pl-description,
+body.light-mode .channel-pro-total {
+  color: #64748b;
+}
+
+/* ===== MOBILE RESPONSIVE (≤480px) ===== */
+
+@media (max-width: 480px) {
+
+  .about-channel {
+    width: 95%;
+  }
+
+  /* COVER */
+  .channel-pro-coverImage {
+    height: 140px;
+  }
+
+  /* HEADER */
+  .channel-pro-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 60px 15px 20px;
+  }
+
+  /* AVATAR */
+  .channel-pro-avatar {
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 110px;
+    height: 110px;
+  }
+
+  .channel-pro-avatar:hover {
+    transform: translateX(-50%) scale(1.05);
+  }
+
+  /* TEXT */
+  .channel-pro-text {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+
+  .channel-pro-name {
+    font-size: 20px;
+  }
+
+  .channel-pro-subscribers {
+    font-size: 12px;
+  }
+
+  /* SUBSCRIBE BUTTON */
+  .channel-pro-subscribe-button {
+    margin: 12px 0 0;
+    width: 100%;
+  }
+
+  .channel-pro-subscribe-button button {
+    width: 100%;
+    padding: 10px;
+  }
+
+  /* TABS */
+  .channel-pro-option {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .channel-pro-option button {
+    flex: 1;
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  /* VIDEOS GRID */
+  .channel-pro-video {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  /* PLAYLIST VIDEOS */
+  .channel-pro-videos {
+    grid-template-columns: 1fr;
+  }
+
+  /* TWEETS */
+  .channel-pro-tweets > div {
+    padding: 14px;
+  }
+
+  .channel-pro-user-info img {
+    width: 32px;
+    height: 32px;
+  }
+
+  .channel-pro-user-info div:nth-child(2) {
+    font-size: 14px;
+  }
+
+  .channel-pro-user-info div:last-child {
+    font-size: 11px;
+  }
+
+  /* PLAYLIST */
+  .channel-pro-playlist-info {
+    padding: 16px;
+  }
+
+  .channel-pro-pl-name {
+    font-size: 16px;
+  }
+
+  .channel-pro-pl-description {
+    font-size: 12px;
+  }
+}

@@ -1,0 +1,121 @@
+/* ================== SIDEBAR ================== */
+.sidebar {
+  width: 220px;
+  height: 100vh;               /* full viewport height */
+  background-color: #121311;   /* dark mode background */
+  border-right: 1px solid rgba(255, 96, 68, 0.15);
+  position: sticky;            /* keeps sidebar fixed */
+  top: 0;                      /* stick from top */
+  padding-top: 15px;
+  flex-shrink: 0;              /* do not shrink in flex layout */
+  overflow-y: auto;            /* scroll if content overflows */
+  transition: all 0.25s ease;
+}
+
+/* Sidebar content container */
+.sidebar-content {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 0 12px;
+}
+
+/* Sidebar links */
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 14px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #cbd5e1;             /* text color */
+  font-size: 14px;
+  transition: all 0.25s ease;
+}
+
+/* Hover effect */
+.sidebar-link:hover {
+  background-color: rgba(255, 96, 68, 0.08);
+  color: #ff6044;
+  transform: translateX(3px);
+}
+
+/* Active link */
+.sidebar-link.active {
+  background: #ff6044;
+  color: #ffffff;
+  font-weight: 500;
+  box-shadow: 0 0 10px rgba(255, 96, 68, 0.35);
+}
+
+/* Icon container */
+.sidebar-icon {
+  font-size: 16px;
+  width: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Text */
+.sidebar-text {
+  white-space: nowrap;
+  letter-spacing: 0.3px;
+}
+
+/* Scrollbar */
+.sidebar::-webkit-scrollbar {
+  width: 5px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background: #ff6044;
+  border-radius: 10px;
+}
+
+/* ================== LIGHT MODE ================== */
+body.light-mode .sidebar {
+  background-color: #ffffff;
+  border-right: 1px solid #e2e8f0;
+}
+
+body.light-mode .sidebar-link {
+  color: #334155;
+}
+
+body.light-mode .sidebar-link:hover {
+  background-color: rgba(31, 31, 31, 0.08);
+  color: #1f1f1f;
+}
+
+body.light-mode .sidebar-link.active {
+  background: #1f1f1f;
+  color: #ffffff;
+  box-shadow: 0 0 10px rgba(31, 31, 31, 0.25);
+}
+
+body.light-mode .sidebar::-webkit-scrollbar-thumb {
+  background: #1f1f1f;
+}
+
+/* ================== RESPONSIVE ================== */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 60px;           /* collapse sidebar for smaller screens */
+    padding-top: 10px;
+  }
+
+  .sidebar-text {
+    display: none;         /* hide text */
+  }
+
+  .sidebar-link {
+    justify-content: center;
+    padding: 10px 0;
+  }
+
+  .sidebar-icon {
+    width: auto;
+  }
+}
+

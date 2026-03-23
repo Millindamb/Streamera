@@ -1,0 +1,114 @@
+/* ===== THEME VARIABLES (if not already defined globally) ===== */
+
+:root {
+  --accent-color: #ff6044;
+  --bg-main: #121311;
+  --bg-card: #1c1d1b;
+  --text-main: #e5e7eb;
+  --text-secondary: #9ca3af;
+  --border-accent: rgba(255, 96, 68, 0.25);
+  --bg-hover: rgba(255, 96, 68, 0.08);
+}
+
+body.light-mode {
+  --accent-color: #1f1f1f;
+  --bg-main: #f8fafc;
+  --bg-card: #ffffff;
+  --text-main: #0f172a;
+  --text-secondary: #64748b;
+  --border-accent: rgba(0,0,0,0.08);
+  --bg-hover: rgba(0,0,0,0.04);
+}
+
+/* ===== Home Page Layout ===== */
+
+.home-section {
+  padding: 25px 40px;
+  background-color: var(--bg-main);
+  min-height: 100vh;
+  box-sizing: border-box;
+  color: var(--text-main);
+}
+
+/* ===== LOGIN NOTIFICATION (NEW) ===== */
+
+.login-notification {
+  background: var(--bg-card);
+  border: 1px solid var(--border-accent);
+  padding: 12px 16px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  color: var(--text-main);
+}
+
+.login-notification .click-here {
+  color: var(--accent-color);
+  font-weight: 600;
+  text-decoration: none;
+  margin: 0 4px;
+  transition: 0.2s;
+}
+
+.login-notification .click-here:hover {
+  text-decoration: underline;
+}
+
+/* ===== Video Grid ===== */
+
+.home-video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 22px;
+}
+
+/* ===== Status Messages ===== */
+
+.status {
+  text-align: center;
+  font-size: 18px;
+  margin-top: 40px;
+  color: var(--text-secondary);
+}
+
+/* ===== Error ===== */
+
+.error {
+  color: var(--accent-color);
+  font-weight: 500;
+}
+
+/* ===== Video Card Wrapper ===== */
+
+.home-video-grid > * {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 8px;
+  transition: all 0.25s ease;
+  border: 1px solid var(--border-accent);
+}
+
+.home-video-grid > *:hover {
+  transform: translateY(-4px);
+  background: var(--bg-hover);
+  border-color: var(--accent-color);
+}
+
+/* ===== Responsive ===== */
+
+@media (max-width: 900px) {
+  .home-section {
+    padding: 20px;
+  }
+
+  .home-video-grid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 18px;
+  }
+}
+
+@media (max-width: 500px) {
+  .home-video-grid {
+    grid-template-columns: 1fr;
+  }
+}

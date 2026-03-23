@@ -1,0 +1,96 @@
+/* ============================= */
+/* THEME VARIABLES (if not defined globally) */
+/* ============================= */
+
+:root {
+  --accent-color: #ff6044;
+  --bg-main: #121313;
+  --bg-card: #1c1d1b;
+  --text-main: #f1f5f9;
+  --text-secondary: #9ca3af;
+  --border-accent: rgba(255,96,68,0.12);
+  --bg-hover: rgba(255,96,68,0.06);
+}
+
+body.light-mode {
+  --accent-color: #1f1f1f;
+  --bg-main: #f8fafc;
+  --bg-card: #ffffff;
+  --text-main: #0f172a;
+  --text-secondary: #64748b;
+  --border-accent: rgba(0,0,0,0.08);
+  --bg-hover: rgba(0,0,0,0.04);
+}
+
+/* ============================= */
+/* MAIN CONTAINER */
+/* ============================= */
+
+.liked-videos-container {
+  width: 100%;
+  padding: 25px 40px;
+  min-height: 100vh;
+  background: var(--bg-main);
+  color: var(--text-main);
+  box-sizing: border-box;
+}
+
+/* ============================= */
+/* VIDEOS GRID */
+/* ============================= */
+
+.liked-videos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 22px;
+}
+
+/* ============================= */
+/* VIDEOCARD WRAPPER */
+/* ============================= */
+
+.liked-videos > * {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 8px;
+  border: 1px solid var(--border-accent);
+  transition: all 0.25s ease;
+}
+
+.liked-videos > *:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent-color);
+  background: var(--bg-hover);
+}
+
+/* ============================= */
+/* STATUS TEXT */
+/* ============================= */
+
+.liked-videos-status-text {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin-top: 80px;
+}
+
+/* ============================= */
+/* RESPONSIVE */
+/* ============================= */
+
+@media (max-width: 900px) {
+  .liked-videos-container {
+    padding: 20px;
+  }
+
+  .liked-videos {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  }
+}
+
+@media (max-width: 500px) {
+  .liked-videos {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,180 @@
+/* ===== THEME VARIABLES ===== */
+
+:root {
+  --accent-color: #4f46e5;
+  --accent-hover: #6366f1;
+  --danger-color: #dc3545;
+  --danger-hover: #a71d2a;
+}
+
+body.light-mode {
+  --accent-color: #1f1f1f;
+  --accent-hover: #333333;
+  --danger-color: #1f1f1f;
+  --danger-hover: #333333;
+}
+
+/* ===== Main Container ===== */
+.specific-playlist {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #e5e7eb;
+  background-color: #121311;
+}
+
+/* ===== Edit Box Section ===== */
+.specific-pl-editbox {
+  background-color: #1e293b;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Playlist Name & Description */
+.specific-pl-name {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.specific-pldescription {
+  font-size: 16px;
+  color: #9ca3af;
+  margin-bottom: 10px;
+}
+
+/* ===== Form Styling ===== */
+.specific-pl-editbox form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.specific-pl-editbox input {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #334155;
+  background-color: #0f172a;
+  color: #e5e7eb;
+  font-size: 14px;
+  outline: none;
+  transition: 0.25s;
+}
+
+.specific-pl-editbox input:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 6px rgba(79, 70, 229, 0.3);
+}
+
+/* ===== Buttons ===== */
+.specific-pl-editbox > button,
+.specific-pl-editbox form button {
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  background-color: var(--accent-color);
+  color: white;
+  transition: 0.25s ease-in-out;
+}
+
+.specific-pl-editbox form button:hover,
+.specific-pl-editbox > button:hover {
+  background-color: var(--accent-hover);
+}
+
+/* ===== Video Section ===== */
+.specific-pl-video {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* Each video wrapper */
+.specific-pl-video > div {
+  width: 250px;
+  background-color: #1e293b;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Remove Video Button */
+.specific-pl-video > div button {
+  background-color: var(--danger-color);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.specific-pl-video > div button:hover {
+  background-color: var(--danger-hover);
+}
+
+/* ===== Empty & Loading Text ===== */
+.specific-pl-video > div:empty,
+.specific-pl-video > div.loading {
+  color: #9ca3af;
+  font-size: 14px;
+  text-align: center;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 600px) {
+  .specific-playlist {
+    padding: 10px;
+  }
+
+  .specific-pl-name {
+    font-size: 22px;
+  }
+
+  .specific-pl-video > div {
+    width: 100%;
+  }
+}
+
+/* ===== Light Mode ===== */
+body.light-mode .specific-playlist {
+  background-color: #f8fafc;
+  color: #0f172a;
+}
+
+body.light-mode .specific-pl-editbox {
+  background-color: #ffffff;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+body.light-mode .specific-pldescription {
+  color: #64748b;
+}
+
+body.light-mode .specific-pl-editbox input {
+  background-color: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  color: #0f172a;
+}
+
+body.light-mode .specific-pl-editbox input:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 6px rgba(0,0,0,0.1);
+}
+
+body.light-mode .specific-pl-video > div {
+  background-color: #ffffff;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.06);
+  border: 1px solid #e2e8f0;
+}

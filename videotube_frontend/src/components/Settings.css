@@ -1,0 +1,306 @@
+/* ===== THEME VARIABLES (GLOBAL) ===== */
+
+:root {
+  --accent-color: #ff6044;
+  --accent-hover: #ff735a;
+}
+
+body.light-mode {
+  --accent-color: #1f1f1f;
+  --accent-hover: #333333;
+}
+
+/* ============================= */
+/* MAIN WRAPPER */
+/* ============================= */
+
+button {
+  margin-bottom: 5px;
+}
+
+.settings {
+  min-height: 100vh;
+  background: #121313;
+  color: #f1f5f9;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ============================= */
+/* TOP SWITCH BUTTONS */
+/* ============================= */
+
+.settings-option {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 30px;
+}
+
+.settings-option button {
+  background: #1c1d1b;
+  color: #f1f5f9;
+  border: 1px solid rgba(255,96,68,0.12);
+  padding: 10px 22px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  font-weight: 500;
+}
+
+.settings-option button:hover {
+  background: rgba(255,96,68,0.08);
+  border-color: rgba(255,96,68,0.35);
+  color: var(--accent-color);
+}
+
+/* ============================= */
+/* CARD CONTAINERS */
+/* ============================= */
+
+.settings-updateDetails,
+.settings-updatePassword {
+  background: #1c1d1b;
+  width: 100%;
+  max-width: 620px;
+  padding: 30px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,96,68,0.12);
+  transition: all 0.25s ease;
+}
+
+/* ============================= */
+/* PASSWORD FORM */
+/* ============================= */
+
+.settings-password-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.settings-password-input {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid rgba(255,96,68,0.15);
+  background: #121313;
+  color: #f1f5f9;
+  outline: none;
+  transition: all 0.25s ease;
+}
+
+.settings-password-input:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 6px rgba(255,96,68,0.35);
+}
+
+/* ============================= */
+/* FORM LAYOUT */
+/* ============================= */
+
+.settings-form1,
+.settings-form1-view,
+.settings-form2-edit,
+.settings-form2-view,
+.form3-edit,
+.settings-form3-view {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* ============================= */
+/* TEXT LABELS */
+/* ============================= */
+
+.settings p {
+  font-size: 14px;
+  color: #9ca3af;
+}
+
+/* ============================= */
+/* TEXT DISPLAY BOX */
+/* ============================= */
+
+.settings-form1-fullname,
+.settings-form1-email {
+  padding: 10px;
+  border-radius: 6px;
+  background: #121313;
+  border: 1px solid rgba(255,96,68,0.12);
+}
+
+/* ============================= */
+/* INPUTS */
+/* ============================= */
+
+.settings input[type="text"],
+.settings input[type="password"],
+.settings input[type="file"] {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid rgba(255,96,68,0.15);
+  background: #121313;
+  color: #f1f5f9;
+  outline: none;
+  transition: all 0.25s ease;
+}
+
+.settings input:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 6px rgba(255,96,68,0.35);
+}
+
+/* ============================= */
+/* BUTTONS */
+/* ============================= */
+
+.settings button {
+  margin-top: 10px;
+  padding: 10px 18px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  background: var(--accent-color);
+  color: white;
+  font-weight: 500;
+  transition: all 0.25s ease;
+}
+
+.settings button:hover {
+  background: var(--accent-hover);
+}
+
+/* cancel button */
+
+.settings button[type="button"] {
+  background: #2a2b29;
+  margin-left: 10px;
+}
+
+.settings button[type="button"]:hover {
+  background: #3a3b39;
+}
+
+/* ============================= */
+/* IMAGES */
+/* ============================= */
+
+.settings-form2-view img {
+  width: 100%;
+  max-height: 240px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid rgba(255,96,68,0.15);
+}
+
+.settings-form3-view {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.settings-form3-view img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid rgba(255,96,68,0.3);
+}
+
+.settings-form3-view button {
+  width: 120px;
+}
+
+/* ============================= */
+/* PASSWORD SECTION */
+/* ============================= */
+
+.settings-updatePassword h2 {
+  margin-bottom: 10px;
+}
+
+/* ============================= */
+/* ERROR MESSAGE */
+/* ============================= */
+
+.error-section {
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 6px;
+  background: rgba(255,96,68,0.12);
+  color: var(--accent-color);
+  font-size: 14px;
+}
+
+/* ============================= */
+/* RESPONSIVE */
+/* ============================= */
+
+@media (max-width: 600px) {
+  .settings-updateDetails,
+  .settings-updatePassword {
+    padding: 20px;
+  }
+
+  .settings-option {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .settings-option button {
+    width: 100%;
+  }
+}
+
+/* ============================= */
+/* LIGHT MODE */
+/* ============================= */
+
+body.light-mode .settings {
+  background: #f8fafc;
+  color: #0f172a;
+}
+
+body.light-mode .settings-updateDetails,
+body.light-mode .settings-updatePassword {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+}
+
+/* FIXED BUTTON COLORS (NO ORANGE) */
+
+body.light-mode .settings-option button {
+  background: #ffffff;
+  color: #121313;
+  border: 1px solid #e2e8f0;
+}
+
+body.light-mode .settings-option button:hover {
+  background: #f1f1f1;
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+}
+
+body.light-mode .settings input[type="text"],
+body.light-mode .settings input[type="password"],
+body.light-mode .settings input[type="file"],
+body.light-mode .settings-password-input {
+  background: #ffffff;
+  color: #121313;
+  border: 1px solid #e2e8f0;
+}
+
+body.light-mode .settings-form1-fullname,
+body.light-mode .settings-form1-email {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+}
+
+/* ERROR */
+
+body.light-mode .error-section {
+  background: #f1f1f1;
+  color: var(--accent-color);
+}
