@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import { isAuthContext } from "../context/context";
 import { getChannelInfo, isChannelSubscribed } from "../api/watchChannel";
 import { toggelSubscribe } from "../api/Togglesub";
-import "./channelInfo.css";
+import "./ChannelInfo.css";
 import { useNavigate } from "react-router-dom";
 
 const ChannelInfo = ({ owner }) => {
