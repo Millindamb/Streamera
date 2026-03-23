@@ -6,7 +6,13 @@ const app = express();
 
 // ✅ CORS FIX (Production Ready)
 app.use(cors({
-  origin: process.env.CORS_ORIGIN,
+  origin: function(origin, callback) {
+    if (!origin || origin.includes("vercel.app")) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
   credentials: true
 }));
 
