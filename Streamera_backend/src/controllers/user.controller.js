@@ -91,57 +91,53 @@ const registerUser=asyncHandler( async(req,res)=>{//here asyncHandler is a highe
 //this is just a method(for this method to work we define all the remaning work inside user.routes.js)
 //which will handle how this method if called when someone hit the secure_url
 
-const loginUser=asyncHandler(async(req,res)=>{
-    //taking username, email and password form the frontend
-    const {email,username,password}=req.body
+const loginUser = asyncHandler(async (req, res) => {
+    const { email, username, password } = req.body;
 
-    //checking if one of them exists to login
-    if(!(username || email)){
-        throw new ApiError(400,"Username and password is required")
-    }
-    
-    //finding the user using the either the email or usernameF
-    const user=await User.findOne({
-        $or:[{email},{username}]
-    })
-
-    if(!user){//checking if the user exist or not
-        throw new ApiError(404,"User does not exist")
+    if ((!email || email.trim() === "") && (!username || username.trim() === "")) {
+        throw new ApiError(400, "Email or Username is required");
     }
 
-    //checking for the password
-    const isPasswordValid=await user.isPasswordCorrect(password)
-
-    if(!isPasswordValid){//if the password is incorrect
-        throw new ApiError(401,"Invalid user credentials")
+    if (!password || password.trim() === "") {
+        throw new ApiError(400, "Password is required");
     }
 
-    //generating access and refresh token by userid and holding them to variables
-    const {accessToken,refreshToken}=await generateAccessAndRefreshToken(user._id)
+    const user = await User.findOne(
+        email ? { email: email.trim() } : { username: username.trim() }
+    );
 
-    //researching the user after updating the refresh token
-    const loggedInUser=await User.findById(user._id).
-    select("-password -refreshToken")//removing the password and the refresh token
-
-    //to send cookies
-    const options={
-        httpOnly:true,//only server and modifiy this
-        secure:true
+    if (!user) {
+        throw new ApiError(404, "User does not exist");
     }
+
+    const isPasswordValid = await user.isPasswordCorrect(password);
+
+    if (!isPasswordValid) {
+        throw new ApiError(401, "Invalid user credentials");
+    }
+
+    const { accessToken, refreshToken } = await generateAccessAndRefreshToken(user._id);
+
+    const loggedInUser = await User.findById(user._id)
+        .select("-password -refreshToken");
+
+    const options = {
+        httpOnly: true,
+        secure: true
+    };
+
     return res
-    .status(200)
-    .cookie("accessToken",accessToken,options)
-    .cookie("refreshToken",refreshToken,options)
-    .json(
-        new ApiResponse(
-            200,
-            {
-                user:loggedInUser,accessToken,refreshToken
-            },
-            "User Logged In Successfully"
-        )
-    )
-})
+        .status(200)
+        .cookie("accessToken", accessToken, options)
+        .cookie("refreshToken", refreshToken, options)
+        .json(
+            new ApiResponse(
+                200,
+                { user: loggedInUser, accessToken, refreshToken },
+                "User Logged In Successfully"
+            )
+        );
+});
 
 const logoutUser=asyncHandler(async(req,res)=>{
     await User.findByIdAndUpdate(//using the findbyidandupdate as we need to update the refresh token
