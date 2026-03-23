@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { getTweets,createTweet,deleteTweets, updateTweet } from '../api/Tweet'
-import './tweet.css'
+import './Tweet.css'
 
 const Tweets = () => {
   const [tweets,setTweets]=useState({});
