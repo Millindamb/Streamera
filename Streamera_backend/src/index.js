@@ -1,27 +1,34 @@
 // require('dotenv').config({path:'./env'})//this line effect code consistency
 //to solve this we use 
-import dotenv from "dotenv"//then configure it
+import dotenv from "dotenv";
 import connectDB from "./db/index.js";
 import { app } from "./app.js";
 
-dotenv.config({path:"./.env"})//but to still use by importing 
-//we have to the modify the dev inside the scripts inside the package.json 
-// to: "dev": "nodemon -r dotenv/config --experimental-json-modules src/index.js"
+// Load environment variables
+dotenv.config({
+  path: "./.env",
+});
 
-app.get('/',(req,res)=>{
-    res.send("Backend is Running")
-})
+// Test route
+app.get("/", (req, res) => {
+  res.send("Backend is Running");
+});
 
+// Connect DB and start server
 connectDB()
-.then(()=>{
-    app.on("error",(error)=>{
-        console.log("Error :",error);
-        throw error;
-    })
-    app.listen(process.env.PORT || 8000,()=>{
-        console.log(`Server is running at port :${process.env.PORT}`);
-    })
-})
-.catch((error)=>{
-    console.log("MONGO db connection failed !!!",error);
-})
+  .then(() => {
+    app.on("error", (error) => {
+      console.error("App Error:", error);
+      throw error;
+    });
+
+    const PORT = process.env.PORT || 8000;
+
+    app.listen(PORT, () => {
+      console.log(`✅ Server is running on port: ${PORT}`);
+    });
+  })
+  .catch((error) => {
+    console.error("❌ MongoDB connection failed:", error);
+    process.exit(1); // important for Render
+  });
