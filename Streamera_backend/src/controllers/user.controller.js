@@ -23,71 +23,66 @@ const generateAccessAndRefreshToken=async(userId)=>{
     }
 }
 
-const registerUser=asyncHandler( async(req,res)=>{//here asyncHandler is a higher order function as it accepts functions
-    const{fullName,email,username,password}=req.body//to take user details form the frontend
-    // console.log("Email is :",email)
+const registerUser = asyncHandler(async (req, res) => {
+    const { fullName, email, username, password } = req.body;
 
-    //normal code
-    //if(fullName=="")throw new ApiError(400,"Full name is Required")//to check for empty inputs but this will one check one input at a time
-
-    //advance code(validation)
-    if([fullName,email,username,password].some((field)=>field?.trim()==="")){
-        throw new ApiError(400,"All fields are required")
-    }
-    
-    const existedUser= await User.findOne({//using User to find the username and email in the database as it is directly connected to the moongoose
-        $or:[{username},{email}]//using the or operator to check if either one of them already exists then it will true
-    })
-
-    if(existedUser){
-        throw new ApiError(409,"user with email and username already exists")
+    // 1. Check all fields present
+    if ([fullName, email, username, password].some((field) => !field || field.trim() === "")) {
+        throw new ApiError(400, "All fields are required");
     }
 
-    //multer giving the file access in-which there is avatar with first property which have the infomation of the path
-    const avatarLocalPath=req.files?.avatar[0]?.path;
-    // const coverImageLocalPath=req.files?.coverImage[0]?.path;//as we are not sure about the coverImage is uploaded or not 
-    //anther way to check it 
+    // 2. Normalize inputs
+    const normalizedEmail = email.trim().toLowerCase();
+    const normalizedUsername = username.trim().toLowerCase();
+
+    // 3. Check for existing user (with correct $or syntax)
+    const existedUser = await User.findOne({
+        $or: [{ username: normalizedUsername }, { email: normalizedEmail }]
+    });
+
+    if (existedUser) {
+        throw new ApiError(409, "User with email or username already exists");
+    }
+
+    // 4. Safe file path extraction
+    const avatarLocalPath = req.files?.avatar?.[0]?.path;
     let coverImageLocalPath;
-    if(req.files && Array.isArray(req.files.coverImage) && req.files.coverImage.length>0){
-        coverImageLocalPath=req.files.coverImage[0].path
+    if (req.files && Array.isArray(req.files.coverImage) && req.files.coverImage.length > 0) {
+        coverImageLocalPath = req.files.coverImage[0].path;
     }
 
-    //checking for the avatar
-    if(!avatarLocalPath){
-        throw new ApiError(400,"Avatar file is required")
+    if (!avatarLocalPath) {
+        throw new ApiError(400, "Avatar file is required");
     }
 
-    //uploading image on cloudinary if file exsits
-    const avatar=avatarLocalPath ? await uploadOnCloudinary(avatarLocalPath) : null;
+    // 5. Upload to Cloudinary
+    const avatar = await uploadOnCloudinary(avatarLocalPath);
+    const coverImage = coverImageLocalPath ? await uploadOnCloudinary(coverImageLocalPath) : null;
 
-    const coverImage=coverImageLocalPath ? await uploadOnCloudinary(coverImageLocalPath) : null;
-
-    if(!avatar){
-        throw new ApiError(400,"Avatar file is required")
+    if (!avatar) {
+        throw new ApiError(400, "Avatar upload failed, please try again");
     }
 
-    //creating a user using the User as it is connected to the moongoose
-    const user=await User.create({
-        fullName,
-        avatar:avatar.secure_url,
-        coverImage:coverImage?.secure_url || "",//as we are not sure about the cover image
-        email,
+    // 6. Create user with normalized values
+    const user = await User.create({
+        fullName: fullName.trim(),
+        avatar: avatar.secure_url,
+        coverImage: coverImage?.secure_url || "",
+        email: normalizedEmail,
         password,
-        username:username.toLowerCase()
-    })
+        username: normalizedUsername
+    });
 
-    const createdUser=await User.findById(user._id).select(
-        "-password -refreshToken"
-    )
+    const createdUser = await User.findById(user._id).select("-password -refreshToken");
 
-    if(!createdUser){
-        throw new ApiError(500,"Something went wrong while registering the user")
+    if (!createdUser) {
+        throw new ApiError(500, "Something went wrong while registering the user");
     }
 
     return res.status(201).json(
-        new ApiResponse(200,createdUser,"User registered Successfully")
-    )
-} )
+        new ApiResponse(201, createdUser, "User registered Successfully")
+    );
+});
 //this is just a method(for this method to work we define all the remaning work inside user.routes.js)
 //which will handle how this method if called when someone hit the secure_url
 
@@ -103,7 +98,9 @@ const loginUser = asyncHandler(async (req, res) => {
     }
 
     const user = await User.findOne(
-        email ? { email: email.trim() } : { username: username.trim() }
+        email 
+            ? { email: email.trim().toLowerCase() } 
+            : { username: username.trim().toLowerCase() }
     );
 
     if (!user) {
