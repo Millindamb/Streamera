@@ -40,6 +40,8 @@ const Dashboard = () => {
     setUpload(true)
     try{
       const response=await uploadVideo(title,description,video,thumbnail)
+      setDescription("")
+      setTitle("")
     }catch(e){
       console.log(e)
     }finally{setUpload(false)}
@@ -118,7 +120,7 @@ const Dashboard = () => {
         </form>:
         <div className='dashboard-uploading'>
           the video is uploading...
-          Please Wait and don't referesh.
+          Please Wait and don't refresh.
         </div>}
       </div>:
       <div className='dashboard-user-videos'>
