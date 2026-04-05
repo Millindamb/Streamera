@@ -2,18 +2,18 @@ import React from "react";
 import "./VideoCard.css";
 import {NavLink} from 'react-router-dom'
 
-const formatCount = (count) => {
-  if (count >= 1000000) return (count / 1000000).toFixed(1) + "M";
-  if (count >= 1000) return (count / 1000).toFixed(1) + "K";
+const formatCount=(count)=>{
+  if (count>=1000000)return (count/1000000).toFixed(1)+"M";
+  if (count>=1000)return (count/1000).toFixed(1)+"K";
   return count;
 };
 
-const formatTimeAgo = (dateString) => {
-  const now = new Date();
-  const created = new Date(dateString);
-  const seconds = Math.floor((now - created) / 1000);
+const formatTimeAgo=(dateString)=>{
+  const now=new Date();
+  const created=new Date(dateString);
+  const seconds=Math.floor((now-created)/1000);
 
-  const intervals = {
+  const intervals={
     year: 31536000,
     month: 2592000,
     day: 86400,
@@ -21,10 +21,10 @@ const formatTimeAgo = (dateString) => {
     minute: 60,
   };
 
-    for (let key in intervals) {
-      const interval = Math.floor(seconds / intervals[key]);
-      if (interval >= 1) {
-        return `${interval} ${key}${interval > 1 ? "s" : ""} ago`;
+    for(let key in intervals){
+      const interval=Math.floor(seconds/intervals[key]);
+      if(interval>=1){
+        return `${interval} ${key}${interval>1 ? "s" : ""} ago`;
       }
     }
 

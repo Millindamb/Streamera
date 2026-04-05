@@ -118,6 +118,7 @@ const Dashboard = () => {
         </form>:
         <div className='dashboard-uploading'>
           the video is uploading...
+          Please Wait and don't referesh.
         </div>}
       </div>:
       <div className='dashboard-user-videos'>

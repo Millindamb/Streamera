@@ -87,7 +87,7 @@ const Tweets = () => {
       </div>
       {loading ? <div>Loading...</div>:
       <div className='Tweets'>
-        {!tweets.length?<div>no Tweets avaliable</div>:
+        {!tweets.length?<div>No Tweets Avaliable</div>:
         tweets.map((t)=>{return(
           (update && update==t._id) ? 
           <div key={t._id}>

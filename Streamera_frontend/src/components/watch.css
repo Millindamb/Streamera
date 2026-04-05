@@ -146,10 +146,35 @@ body.light-mode {
   border-radius: 6px;
   cursor: pointer;
   transition: background 0.2s ease;
+  border-bottom: 1px solid var(--border-accent); 
+}
+
+.playlist-info:last-child {
+  border-bottom: none;
 }
 
 .playlist-info:hover {
   background: rgba(255,96,68,0.08);
+}
+
+/* ===== PLAYLIST TEXT ===== */
+
+.watch-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-main);
+  margin-bottom: 3px;
+}
+
+.watch-description {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-bottom: 2px;
+}
+
+.watch-total {
+  font-size: 12px;
+  color: var(--text-secondary);
 }
 
 /* ===== PLAYLIST TEXT ===== */

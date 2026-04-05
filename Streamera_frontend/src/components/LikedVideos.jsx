@@ -25,7 +25,7 @@ const LikedVideos = () => {
   return (
     <div className="liked-videos-container">
       {loading ? (<p className="liked-videos-status-text">Loading...</p>)
-      : videos.length===0?(<p className="liked-videos-status-text">No videos liked yet</p>) : 
+      : videos.length===0?(<p className="liked-videos-status-text">No Videos Liked Yet.</p>) : 
       <div className="liked-videos">
         {videos?.filter((v)=>v?.video?._id).map((v)=>(
             <VideoCard key={v.video._id} video={v.video}/>

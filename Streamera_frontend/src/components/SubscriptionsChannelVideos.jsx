@@ -28,7 +28,7 @@ const SubscriptionsChannelVideos = ({channelId,channelAvatar,channelUserName}) =
             Latest Videos
         </div>
         <div className='subscribed-channel-videos'>
-            {videos.length===0?<div className='fd'>No Video Found</div>:videos.map((v)=>{return <VideoCard key={v._id} video={v}/>})}
+            {videos.length===0?<div className='fd'>No Video Uploaded Yet.</div>:videos.map((v)=>{return <VideoCard key={v._id} video={v}/>})}
         </div>
     </div>
   )

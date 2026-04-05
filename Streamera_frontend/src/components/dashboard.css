@@ -200,6 +200,39 @@ body.light-mode {
   background: #475569;
 }
 
+.dashboard-upload-video input[type="file"] {
+  width: 100%;
+  padding: 5px 10px;        /* padding instead of fixed height */
+  margin-bottom: 18px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,96,68,0.15);
+  background: #121313;
+  color: #f1f5f9;
+  font-size: 14px;
+  outline: none;
+  transition: 0.25s;
+  cursor: pointer;
+  box-sizing: border-box;   /* ensures padding doesn't overflow */
+}
+
+/* Style the "Choose File" button inside the input */
+.dashboard-upload-video input[type="file"]::file-selector-button {
+  height: 28px;
+  padding: 0 12px;
+  border-radius: 6px;
+  border: none;
+  background: var(--accent-color);
+  color: white;
+  font-size: 13px;
+  cursor: pointer;
+  margin-right: 10px;
+  transition: 0.25s;
+}
+
+.dashboard-upload-video input[type="file"]::file-selector-button:hover {
+  background: var(--accent-hover);
+}
+
 /* ===== Uploading State ===== */
 
 .dashboard-uploading {

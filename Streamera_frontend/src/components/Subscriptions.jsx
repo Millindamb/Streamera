@@ -19,7 +19,7 @@ const Subscriptions = () => {
   return (
     <div className='channel-detail'>
       {channels.length===0?
-        <div>No Channel Subscribed yet</div>:
+        <div>No Channel Subscribed Yet.</div>:
         channels.map((c)=>{return <SubscriptionsChannelVideos key={c.channel._id} channelId={c.channel._id} channelAvatar={c.channel.avatar} channelUserName={c.channel.username}/>})
       }
     </div>
