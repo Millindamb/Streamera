@@ -23,13 +23,9 @@ const createTweet = asyncHandler(async (req, res) => {
 
 const getUserTweets = asyncHandler(async (req, res) => {
     //const userId=req.user._id
-    const { userId } = req.params
+    const {userId}=req.params
 
     const userTweets=await Tweet.find({owner:userId}).sort({createdAt:-1})
-
-    if(!userTweets?.length){
-        throw new ApiError(404,"No Tweets avaliable")
-    }
 
     return res.status(200)
     .json(new ApiResponse(200,userTweets,"User Tweets Fetched Successfully"))

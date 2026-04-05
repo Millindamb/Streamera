@@ -3,7 +3,7 @@ import { getTweets,createTweet,deleteTweets, updateTweet } from '../api/Tweet'
 import './Tweet.css'
 
 const Tweets = () => {
-  const [tweets,setTweets]=useState({});
+  const [tweets,setTweets]=useState([]);
   const [create,setCreate]=useState(false);
   const [loading,setLoading]=useState(true);
   const [content,setContent]=useState("");
@@ -21,16 +21,18 @@ const Tweets = () => {
   }
 
   useEffect(()=>{
-    const fetchTweets=async()=>{
-      try{
-        const response=await getTweets(user._id);
-        setTweets(response.data.data)
-        setLoading(false)
-      }catch(e){
-        console.log(e)
+      const fetchTweets=async()=>{
+          try{
+              const response=await getTweets(user._id);
+              setTweets(response.data.data || []);
+          }catch(e){
+              console.log(e);
+              setTweets([]);
+          }finally{
+              setLoading(false);
+          }
       }
-    }
-    fetchTweets()
+      fetchTweets()
   },[create,update])
 
   const deleteUserTweet=async(tweetId)=>{
