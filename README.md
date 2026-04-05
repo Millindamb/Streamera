@@ -1,7 +1,7 @@
 # 🎬 Streamera
 ### A full-stack video sharing app
 
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-Vercel-black?style=for-the-badge&logo=vercel)](https://streamera.vercel.app)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Vercel-black?style=for-the-badge&logo=vercel)](https://streamera-mq1y.vercel.app/)
 [![Backend](https://img.shields.io/badge/Backend-Render-46E3B7?style=for-the-badge&logo=render)](https://streamera.onrender.com)
 [![GitHub](https://img.shields.io/badge/GitHub-Millindamb%2FStreamera-181717?style=for-the-badge&logo=github)](https://github.com/Millindamb/Streamera)
 
