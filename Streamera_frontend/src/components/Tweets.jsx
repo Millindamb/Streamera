@@ -14,6 +14,7 @@ const Tweets = () => {
   const createNewTweet=async()=>{
     try{
       const response=await createTweet(content)
+      setCreate(false)
     }catch(e){
       console.log(e)
     }
@@ -43,7 +44,7 @@ const Tweets = () => {
   const updateUserTweet=async()=>{
     try{
       const response=await updateTweet(update,updateContent);
-      setUpdate(null)
+      setUpdate(null);
       setUpdateContent(null)
     }catch(e){
       console.log(e)
@@ -76,7 +77,7 @@ const Tweets = () => {
     <div className='tweet'>
       <div className='tweet-createTweet'>
         <button onClick={()=>{setCreate(!create)}}>Create Tweet</button>
-        {create && <form onSubmit={()=>{createNewTweet()}} className='tweet-inputs'>
+        {create && <form onSubmit={(e)=>{ e.preventDefault(); createNewTweet(); }} className='tweet-inputs'>
           <p>Content</p>
           <input type="text" placeholder='Content' required onChange={(e)=>{setContent(e.target.value)}}/>
           <button type='submit'>Add</button>
