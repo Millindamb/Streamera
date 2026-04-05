@@ -164,15 +164,19 @@ const ChannelProfile=()=>{
             </div>}
 
             {currentPart==2 && <div className='channel-pro-tweets'>
-                {!tweets.length?<div>no Tweets avaliable</div>:
-                    tweets.map((t)=>{return(<div key={t._id}>
-                        <div className='channel-pro-user-info'>
-                        <img src={user.avatar} alt="" />
-                        <div className='channel-pro-name'>{user.username}</div>
-                        <div>{formatTimeAgo(t.createdAt)}</div>
-                        </div>
-                        <div>{t.content}</div>
-                    </div>)})
+                {!tweets.length ? <div>no Tweets available</div> :
+                    tweets.map((t)=>{
+                        return (
+                            <div key={t._id}>
+                                <div className='channel-pro-user-info'>
+                                    <img src={channelInfo.avatar} alt="" />
+                                    <div className='channel-pro-name'>{channelInfo.username}</div>
+                                    <div>{formatTimeAgo(t.createdAt)}</div>
+                                </div>
+                                <div>{t.content}</div>
+                            </div>
+                        )
+                    })
                 }
             </div>}
 
